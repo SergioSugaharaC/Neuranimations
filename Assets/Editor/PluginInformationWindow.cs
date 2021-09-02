@@ -14,7 +14,12 @@ public class PluginInformationWindow : EditorWindow
         GUILayout.Label("Neuranimation:\nReactive Real Time Animations using Phase Function Neural Networks", EditorStyles.boldLabel);
     
         if(GUILayout.Button("See Previous Versions")){
-            Application.OpenURL("https://github.com/SergioSugaharaC/Neuranimations");
+            OpenGitRepo();
         }
+    }
+
+    [MenuItem("Neuranimation/Versions")]
+    public static void OpenGitRepo(){
+        Application.OpenURL("https://github.com/SergioSugaharaC/Neuranimations");
     }
 }
