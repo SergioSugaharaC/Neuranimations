@@ -16,10 +16,19 @@ public class PluginInformationWindow : EditorWindow
         if(GUILayout.Button("See Previous Versions")){
             OpenGitRepo();
         }
+
+        if(GUILayout.Button("Access Model")){
+            OpenModelRepo();
+        }
     }
 
     [MenuItem("Neuranimation/Versions")]
     public static void OpenGitRepo(){
         Application.OpenURL("https://github.com/SergioSugaharaC/Neuranimations");
+    }
+
+    [MenuItem("Neuranimation/Model")]
+    public static void OpenModelRepo() {
+        Application.OpenURL("https://github.com/Fireinfern/Neuranimation_PFNN");
     }
 }
