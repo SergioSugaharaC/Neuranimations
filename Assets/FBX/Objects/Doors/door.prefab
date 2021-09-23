@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &693780632
 Transform:
   m_ObjectHideFlags: 0
@@ -109,11 +109,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ContactPoints:
-    Hips: {fileID: 0}
-    LeftHand: {fileID: 0}
     RightHand: {fileID: 1410288013}
-    LeftFoot: {fileID: 0}
+    LeftHand: {fileID: 693780631}
     RightFoot: {fileID: 0}
+    LeftFoot: {fileID: 0}
+    Hips: {fileID: 0}
 --- !u!95 &2786041441707077606
 Animator:
   serializedVersion: 3
