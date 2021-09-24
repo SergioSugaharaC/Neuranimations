@@ -1,7 +1,9 @@
+using System.Security.AccessControl;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEditorInternal;
+using UnityEditor.Animations;
 
 
 #if UNITY_EDITOR
@@ -12,14 +14,41 @@ public class AnimationSwitcher : MonoBehaviour
 {
     [SerializeField] private List<AnimationTag> animations;
     private List<string> tagList = new List<string>();
-    
+    private Animator animator;
+    private AnimatorController animCtr;
 
     // Start is called before the first frame update
     void Start()
     {
         tagList.AddRange(UnityEditorInternal.InternalEditorUtility.tags);
-        //print(animations[0].tag-1);
-        //print(tagList[animations[0].tag-1]);
+        animator = gameObject.GetComponent<Animator>();
+        animCtr = animator.runtimeAnimatorController as AnimatorController;
+        AddAnimationStates();
+        /*
+        print(animCtr.animationClips.Length);
+        print(animCtr.animationClips[0]);
+        if(animCtr.animationClips.Contains(animations[0].anim)) print("is in");
+        if(animCtr.animationClips[0] == animations[0].anim)
+            print("yes");
+        else
+            print("no");
+        */
+    }
+
+    void AddAnimationStates(){
+        foreach (AnimationTag anim in animations){
+            if(!animCtr.animationClips.Contains(anim.anim))
+                animCtr.AddMotion(anim.anim);
+        }
+    }
+
+    void OnTriggerEnter(Collider other){
+        foreach (AnimationTag anim in animations){
+            if(other.gameObject.tag == tagList[anim.tag-1]){
+                animator.Play(anim.anim.name);
+            }
+            
+        }
     }
 }
 

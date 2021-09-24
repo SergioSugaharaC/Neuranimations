@@ -1,7 +1,11 @@
+using System.Runtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Animations.Rigging;
 using UnityEngine;
+
+using SIGGRAPH_2017;
 
 public class InteractableObject : MonoBehaviour{
     [System.Serializable] public struct Contacts{
@@ -60,8 +64,11 @@ public class InteractableObject : MonoBehaviour{
 
         for(int i=0; i<rigs.Count; i++){
             if(rigs[i].active){
+                
                 tar = targets.GetChild(i).transform;
                 point = GetContact(tar.name);
+                if(tar.name == "Hips")
+                    tar = targets.parent.gameObject.GetComponent<Transform>();
                 tar.position = Vector3.Lerp(tar.position, point.position, Time.deltaTime * 2.5f);
             }
         }
@@ -72,6 +79,7 @@ public class InteractableObject : MonoBehaviour{
         rigs[1].active = (ContactPoints.LeftHand != null && ContactPoints.LeftHand.active);
         rigs[2].active = (ContactPoints.RightFoot != null && ContactPoints.RightFoot.active);
         rigs[3].active = (ContactPoints.LeftFoot != null && ContactPoints.LeftFoot.active);
+        rigs[4].active = (ContactPoints.Hips != null && ContactPoints.Hips.active);
         //if(ContactPoints.Hips != null) rigs[0].active = true; not declared
 
         switch(gameObject.tag){
@@ -96,7 +104,15 @@ public class InteractableObject : MonoBehaviour{
     }
 
     void ChairInteraction(){
+        targets.gameObject.GetComponentInParent<BioAnimation_Original>().enabled = false;
         // wait for sit and correct pose
+        //ContactPoints.RightHand.SetActive(!ContactPoints.RightHand.active);
+        //ContactPoints.LeftHand.SetActive(!ContactPoints.LeftHand.active);
+        //ContactPoints.RightFoot.SetActive(!ContactPoints.RightFoot.active);
+        //ContactPoints.LeftFoot.SetActive(!ContactPoints.LeftFoot.active);
+        //ContactPoints.Hips.SetActive(!ContactPoints.Hips.active);
+
+        isActing = true;
     }
 
     void OnTriggerEnter(Collider other){
@@ -113,6 +129,7 @@ public class InteractableObject : MonoBehaviour{
             foreach (RigLayer layer in rigs){
                 layer.active = false;
             }
+            isActing = false;
         }
     }
 
