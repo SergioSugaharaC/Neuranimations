@@ -20,6 +20,10 @@ public class PluginInformationWindow : EditorWindow
         if(GUILayout.Button("Access Model")){
             OpenModelRepo();
         }
+
+        if(GUILayout.Button("See the Documentation")){
+            OpenGuide();
+        }
     }
 
     [MenuItem("Neuranimation/Versions")]
@@ -30,5 +34,10 @@ public class PluginInformationWindow : EditorWindow
     [MenuItem("Neuranimation/Model")]
     public static void OpenModelRepo() {
         Application.OpenURL("https://github.com/Fireinfern/Neuranimation_PFNN");
+    }
+
+    [MenuItem("Neuranimation/Guide")]
+    public static void OpenGuide() {
+        Application.OpenURL("https://www.sebastiansilva.xyz/neuranimation-docs/usage/");
     }
 }
