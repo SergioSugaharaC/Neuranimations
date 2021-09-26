@@ -695,6 +695,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 537492934, guid: ff8b28a4aa1f16c45894384927e48ce4, type: 3}
+      propertyPath: animations.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6377017252554721636, guid: ff8b28a4aa1f16c45894384927e48ce4, type: 3}
       propertyPath: Parameters
       value: 
