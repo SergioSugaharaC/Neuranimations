@@ -22,4 +22,12 @@
     "email": "u201513410@upc.edu.pe",
     "url": "https://github.com/SergioSugaharaC"
   }
+  
+  "samples": [
+    {
+      "displayName": "NeurAnimation Sample Playground Scene",
+      "description": "Import a scene with various interactble objects, a rugged terrain section and the animation switcher.",
+      "path": "Samples~/NeurAnimation_Demo"
+    }
+  ]
 }
