@@ -1,0 +1,25 @@
+{
+  "name": "com.upc.neuranimation",
+  "version": "1.0.0",
+  "displayName": "NeurAnimation",
+  "description": "Neural network animations with IK and interactions system",
+  "unity": "2020.3",
+  "unityRelease": "16f1",
+  "documentationUrl": "https://example.com/",
+  "changelogUrl": "https://example.com/changelog.html",
+  "licensesUrl": "https://example.com/licensing.html",
+  "dependencies": {
+    "com.unity.animation.rigging": "1.0.3"
+ },
+ "keywords": [
+    "Animations",
+    "Neural Networks",
+    "PFNN",
+	"Inverse Kinematics"
+  ],
+  "author": {
+    "name": "Sergio Sugahara C.",
+    "email": "u201513410@upc.edu.pe",
+    "url": "https://github.com/SergioSugaharaC"
+  }
+}
