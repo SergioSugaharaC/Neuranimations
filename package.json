@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "displayName": "NeurAnimation",
   "description": "Neural network animations with IK and interactions system",
-  "unity": "2020.3",
+  "unity": "2020.2",
   "unityRelease": "16f1",
   "documentationUrl": "https://example.com/",
   "changelogUrl": "https://example.com/changelog.html",
